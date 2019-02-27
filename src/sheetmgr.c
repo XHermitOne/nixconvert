@@ -314,6 +314,7 @@ static BOOL _xlsx_set_margins(lxw_worksheet *oSheet, xls::xlsWorkSheet *oXLSShee
         }
         //if (DBG_MODE) logAddLine("Free [%x]", buff);
         memfree(buff);
+        //if (DBG_MODE) logAddLine("OK");
     }
     while ((!oXLSSheet->workbook->olestr->eof) && (tmp.id != 0x0A));
     
@@ -771,9 +772,12 @@ lxw_workbook *open_workbook_xls(char *xls_filename)
         _xlsx_set_pagesetup(xlsx_sheet, xls_sheet);
         // Установить поля страницы
         _xlsx_set_margins(xlsx_sheet, xls_sheet);
+        if (DBG_MODE) logAddLine("Xls close worksheet <%s>", xls_book->sheets.sheet[i_sheet].name);
         xls::xls_close_WS(xls_sheet); 
+        if (DBG_MODE) logAddLine("...ok");        
     }
 
+    //if (DBG_MODE) logAddLine("Xls close workbook");
     xls::xls_close(xls_book);
     if (DBG_MODE) logAddLine("Open workbook XLS <%s> is OK. Workbook <%s> is active", xls_filename, xlsx_filename);
     

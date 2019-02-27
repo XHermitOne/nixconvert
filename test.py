@@ -77,8 +77,9 @@ commands = ( # './nixconvert --debug',
              #'rm ./tst/bpr981/bpr_735u.xlsx; ./nixconvert --debug --log --cfg=./tst/bpr981/u_oper00.cfg --rep=./tst/bpr981/bookp2.txt --template=./tst/bpr981/bpr_735u.xls; libreoffice ./tst/bpr981/bpr_735u.xlsx',
              #'rm ./tst/bpr981/bpr_981u.xlsx; ./nixconvert --debug --log --cfg=./tst/bpr981/u_oper00.cfg --rep=./tst/bpr981/bookp1.txt --template=./tst/bpr981/bpr_981u.xls; libreoffice ./tst/bpr981/bpr_981u.xlsx',
              #'rm /home/xhermit/.dosemu/drive_c/bagln/wrk/2ndfl_15.xls; cp ./tst/2ndfl/2ndfl_15_original.xls /home/xhermit/.dosemu/drive_c/bagln/wrk/2ndfl_15.xls; ./nixconvert --debug --log --dbf=./tst/2ndfl/export.dbf; libreoffice /home/xhermit/.dosemu/drive_c/bagln/wrk/2ndfl_15.xlsx',
-             'rm /home/xhermit/.dosemu/drive_c/baguln/wrk/inv1osn.xls; cp ./tst/inv10/inv1osn_original.xls /home/xhermit/.dosemu/drive_c/baguln/wrk/inv1osn.xls; ./nixconvert --debug --log --dbf=./tst/inv10/export.dbf; libreoffice /home/xhermit/.dosemu/drive_c/baguln/wrk/inv1osn.xlsx',
+             #'rm /home/xhermit/.dosemu/drive_c/baguln/wrk/inv1osn.xls; cp ./tst/inv10/inv1osn_original.xls /home/xhermit/.dosemu/drive_c/baguln/wrk/inv1osn.xls; ./nixconvert --debug --log --dbf=./tst/inv10/export.dbf; libreoffice /home/xhermit/.dosemu/drive_c/baguln/wrk/inv1osn.xlsx',
              #'rm /home/xhermit/.dosemu/drive_c/pv/bagz/wrk/4fss_01.xls; cp ./tst/fss/4fss_01.xls /home/xhermit/.dosemu/drive_c/pv/bagz/wrk/4fss_01.xls; ./nixconvert --debug --log --dbf=./tst/fss/export.dbf; libreoffice /home/xhermit/.dosemu/drive_c/pv/bagz/wrk/4fss_01.xlsx',
+             'rm /home/xhermit/.dosemu/drive_c/pv/gb/wrk/nds1901.xls; cp ./tst/nds/nds1901.xls /home/xhermit/.dosemu/drive_c/pv/gb/wrk/nds1901.xls; ./nixconvert --debug --log --dbf=./tst/nds/export.dbf; libreoffice /home/xhermit/.dosemu/drive_c/pv/gb/wrk/nds1901.xlsx',
            )
 
 
