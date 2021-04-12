@@ -8,11 +8,11 @@ import os
 import os.path
 
 __author__ = 'xhermit'
-__version__ = (0, 0, 2, 5)
+__version__ = (0, 0, 3, 1)
 
 PACKAGENAME = 'nixconvert'
 PACKAGE_VERSION = '5.4'
-LINUX_VERSION = 'ubuntu14.04'
+LINUX_VERSION = 'ubuntu16.04'
 COPYRIGHT = 'Ayan Company <xhermit@ayan.ru>'
 DESCRIPTION = 'The Linux EConvert fork'
 
@@ -106,6 +106,12 @@ def copy_programm_to_deb():
     """
     Копировать программу в папку сборки.
     """
+    if not os.path.exists('./deb/usr/share'):
+        os.makedirs('./deb/usr/share')
+
+    if not os.path.exists('./deb/usr/bin'):
+        os.makedirs('./deb/usr/bin')
+
     if os.path.exists('default.cfg'):
         sys_cmd('cp ./default.cfg ./deb/usr/share/nixconvert')
     else:
@@ -123,6 +129,9 @@ def copy_libraries_to_deb():
     """
     Копировать библиотеки в папку сборки.
     """
+    if not os.path.exists('./deb/usr/lib'):
+        os.makedirs('./deb/usr/lib')
+
     for lib_filename in LIB_XLS_READER_SRC:
         if os.path.exists(lib_filename):
             sys_cmd('chmod 755 %s' % lib_filename)
