@@ -1,0 +1,8 @@
+Package: nixconvert
+Version: 5.4
+Architecture: amd64
+Maintainer: Ayan Company <xhermit@ayan.ru>
+Depends: 
+Section: contrib
+Priority: optional
+Description: The Linux EConvert fork 
