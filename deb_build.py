@@ -106,8 +106,8 @@ def copy_programm_to_deb():
     """
     Копировать программу в папку сборки.
     """
-    if not os.path.exists('./deb/usr/share'):
-        os.makedirs('./deb/usr/share')
+    if not os.path.exists('./deb/usr/share/nixconvert'):
+        os.makedirs('./deb/usr/share/nixconvert')
 
     if not os.path.exists('./deb/usr/bin'):
         os.makedirs('./deb/usr/bin')
