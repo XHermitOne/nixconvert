@@ -140,9 +140,9 @@ static BOOL _xlsx_set_pagebreaks(lxw_worksheet *oSheet, xls::xlsWorkSheet *oXLSS
     xls::ole2_seek(oXLSSheet->workbook->olestr, oXLSSheet->filepos);
     do
     {
-		size_t read;
+        size_t read;
         read = xls::ole2_read(&tmp, 1, 4, oXLSSheet->workbook->olestr);
-		if (read != 4)
+        if (read != 4)
         {
             if (DBG_MODE) errBox("Error in <xls::ole2_read> function");
             return FALSE;
@@ -150,7 +150,7 @@ static BOOL _xlsx_set_pagebreaks(lxw_worksheet *oSheet, xls::xlsWorkSheet *oXLSS
         
         buff = (BYTE *) malloc(tmp.size);
         read = xls::ole2_read(buff, 1, tmp.size, oXLSSheet->workbook->olestr);
-		if (read != tmp.size)
+        if (read != tmp.size)
         {
             if (DBG_MODE) errBox("Error in <xls::ole2_read> function");
             return FALSE;
@@ -199,9 +199,9 @@ static BOOL _xlsx_set_pagesetup(lxw_worksheet *oSheet, xls::xlsWorkSheet *oXLSSh
     xls::ole2_seek(oXLSSheet->workbook->olestr, oXLSSheet->filepos);
     do
     {
-		size_t read;
+        size_t read;
         read = xls::ole2_read(&tmp, 1, 4, oXLSSheet->workbook->olestr);
-		if (read != 4)
+        if (read != 4)
         {
             if (DBG_MODE) errBox("Error in <xls::ole2_read> function");
             return FALSE;
@@ -209,7 +209,7 @@ static BOOL _xlsx_set_pagesetup(lxw_worksheet *oSheet, xls::xlsWorkSheet *oXLSSh
         
         buff = (BYTE *) malloc(tmp.size);
         read = xls::ole2_read(buff, 1, tmp.size, oXLSSheet->workbook->olestr);
-		if (read != tmp.size)
+        if (read != tmp.size)
         {
             if (DBG_MODE) errBox("Error in <xls::ole2_read> function");
             return FALSE;
@@ -269,9 +269,9 @@ static BOOL _xlsx_set_margins(lxw_worksheet *oSheet, xls::xlsWorkSheet *oXLSShee
     xls::ole2_seek(oXLSSheet->workbook->olestr, oXLSSheet->filepos);
     do
     {
-		size_t read;
+        size_t read;
         read = xls::ole2_read(&tmp, 1, 4, oXLSSheet->workbook->olestr);
-		if (read != 4)
+        if (read != 4)
         {
             if (DBG_MODE) errBox("Error in <xls::ole2_read> function");
             return FALSE;
@@ -279,7 +279,7 @@ static BOOL _xlsx_set_margins(lxw_worksheet *oSheet, xls::xlsWorkSheet *oXLSShee
         
         buff = (BYTE *) malloc(tmp.size);
         read = xls::ole2_read(buff, 1, tmp.size, oXLSSheet->workbook->olestr);
-		if (read != tmp.size)
+        if (read != tmp.size)
         {
             if (DBG_MODE) errBox("Error in <xls::ole2_read> function");
             return FALSE;
@@ -331,9 +331,9 @@ static double _xls_get_standardwidth(xls::xlsWorkSheet *oXLSSheet)
     xls::ole2_seek(oXLSSheet->workbook->olestr, oXLSSheet->filepos);
     do
     {
-		size_t read;
+        size_t read;
         read = xls::ole2_read(&tmp, 1, 4, oXLSSheet->workbook->olestr);
-		if (read != 4)
+        if (read != 4)
         {
             if (DBG_MODE) errBox("Error in <xls::ole2_read> function");
             return FALSE;
@@ -341,7 +341,7 @@ static double _xls_get_standardwidth(xls::xlsWorkSheet *oXLSSheet)
         
         buff = (BYTE *) malloc(tmp.size);
         read = xls::ole2_read(buff, 1, tmp.size, oXLSSheet->workbook->olestr);
-		if (read != tmp.size)
+        if (read != tmp.size)
         {
             if (DBG_MODE) errBox("Error in <xls::ole2_read> function");
             return FALSE;
@@ -372,9 +372,9 @@ static double _xls_get_defcolwidth(xls::xlsWorkSheet *oXLSSheet)
     xls::ole2_seek(oXLSSheet->workbook->olestr, oXLSSheet->filepos);
     do
     {
-		size_t read;
+        size_t read;
         read = xls::ole2_read(&tmp, 1, 4, oXLSSheet->workbook->olestr);
-		if (read != 4)
+        if (read != 4)
         {
             if (DBG_MODE) errBox("Error in <xls::ole2_read> function");
             return FALSE;
@@ -382,7 +382,7 @@ static double _xls_get_defcolwidth(xls::xlsWorkSheet *oXLSSheet)
         
         buff = (BYTE *) malloc(tmp.size);
         read = xls::ole2_read(buff, 1, tmp.size, oXLSSheet->workbook->olestr);
-		if (read != tmp.size)
+        if (read != tmp.size)
         {
             if (DBG_MODE) errBox("Error in <xls::ole2_read> function");
             return FALSE;
@@ -420,9 +420,9 @@ static double _xls_show_default_style(xls::xlsWorkSheet *oXLSSheet)
     xls::ole2_seek(oXLSSheet->workbook->olestr, oXLSSheet->filepos);
     do
     {
-		size_t read;
+        size_t read;
         read = xls::ole2_read(&tmp, 1, 4, oXLSSheet->workbook->olestr);
-		if (read != 4)
+        if (read != 4)
         {
             if (DBG_MODE) errBox("Error in <xls::ole2_read> function");
             return FALSE;
@@ -430,7 +430,7 @@ static double _xls_show_default_style(xls::xlsWorkSheet *oXLSSheet)
         
         buff = (BYTE *) malloc(tmp.size);
         read = xls::ole2_read(buff, 1, tmp.size, oXLSSheet->workbook->olestr);
-		if (read != tmp.size)
+        if (read != tmp.size)
         {
             if (DBG_MODE) errBox("Error in <xls::ole2_read> function");
             return FALSE;
@@ -648,19 +648,19 @@ static BOOL _xls_is_default_bgcolor(xls::xlsWorkBook *oXLSBook, xls::xlsCell *oX
 /**
 *   Открыть xls шаблон и подготовить его для заполнения
 */
-lxw_workbook *open_workbook_xls(char *xls_filename)
+lxw_workbook *open_workbook_xls(char *xls_filename, BOOL bCheckINN)
 {
     char *xlsx_filename = change_filename_ext(xls_filename, ".xlsx");
     lxw_workbook *xlsx_book = NULL;
     
     if (DBG_MODE) logAddLine("lib XLS: <%s>", xls::xls_getVersion());
     xls::xlsWorkBook *xls_book = xls::xls_open(xls_filename, "UTF-8");    
-	if (!xls_book) 
+    if (!xls_book) 
     {
-		if (DBG_MODE) logAddLine("File <%s> not found!", xls_filename);
+        if (DBG_MODE) logAddLine("File <%s> not found!", xls_filename);
         xlsx_filename = strfree(xlsx_filename);
-		return NULL;
-	}
+        return NULL;
+    }
     xls_parseWorkBook(xls_book);
     
     xlsx_book = new_workbook(xlsx_filename);
@@ -671,7 +671,7 @@ lxw_workbook *open_workbook_xls(char *xls_filename)
         lxw_worksheet *xlsx_sheet = workbook_add_worksheet(xlsx_book, (char *) xls_book->sheets.sheet[i_sheet].name);
         
         xls::xlsWorkSheet *xls_sheet = xls::xls_getWorkSheet(xls_book, i_sheet);
-		xls::xls_parseWorkSheet(xls_sheet);
+        xls::xls_parseWorkSheet(xls_sheet);
         
         unsigned int i_max_col = 0;        
         double default_col_width = _convert_width_cm(_xls_get_default_col_width(xls_sheet));
@@ -698,7 +698,7 @@ lxw_workbook *open_workbook_xls(char *xls_filename)
         // Перебор по строкам
         for (unsigned int i_row=0; i_row <= xls_sheet->rows.lastrow; i_row++)
         {
-			xls::xlsRow *xls_row = xls::xls_row(xls_sheet, i_row);
+            xls::xlsRow *xls_row = xls::xls_row(xls_sheet, i_row);
             if (_xls_is_row_hidden(xls_row))
             {
                 if (DBG_MODE) logAddLine("Row [%d] is hidden", i_row);
@@ -717,11 +717,11 @@ lxw_workbook *open_workbook_xls(char *xls_filename)
             
             for (unsigned int i_col=0; i_col <= xls_sheet->rows.lastcol; i_col++)
             {
-				xls::xlsCell *xls_cell = xls::xls_cell(xls_sheet, i_row, i_col);
+                xls::xlsCell *xls_cell = xls::xls_cell(xls_sheet, i_row, i_col);
 
-				if (!xls_cell)
+                if (!xls_cell)
                 { 
-					continue;
+                    continue;
                 }
                 
                 if (i_col > i_max_col)
@@ -754,11 +754,11 @@ lxw_workbook *open_workbook_xls(char *xls_filename)
                                           i_row + xls_cell->rowspan - 1,
                                           i_col + xls_cell->colspan - 1,
                                           (char *) xls_cell->str, format);
-                    if (isnumeric((char *) xls_cell->str))
+                    if (isnumeric((char *) xls_cell->str), bCheckINN)
                         worksheet_write_number(xlsx_sheet, i_row, i_col, atof((char *) xls_cell->str), format);
                     
                 }
-                else if (isnumeric((char *) xls_cell->str))
+                else if (isnumeric((char *) xls_cell->str), bCheckINN)
                     worksheet_write_number(xlsx_sheet, i_row, i_col, xls_cell->d, format);
                 else if (!strempty((char *) xls_cell->str))
                     worksheet_write_string(xlsx_sheet, i_row, i_col, (char *) xls_cell->str, format);
@@ -913,13 +913,13 @@ lxw_format *clone_cell_data_format(lxw_workbook *oBook, lxw_worksheet *oSheet, u
 
 BOOL set_cell_value(lxw_workbook *oBook, lxw_worksheet *oSheet, 
                     unsigned int row, unsigned int col, char *value,
-                    lxw_format *format)
+                    lxw_format *format, BOOL bCheckINN)
 {
     // ВНИМАНИЕ! Корректность заполнения формата ячейки
     if (format == NULL)
         format = _get_cell_format(oSheet, row, col);
  
-    BOOL is_num = isnumeric(value);
+    BOOL is_num = isnumeric(value, bCheckINN);
     //if (DBG_MODE) logAddLine("Set cell [%d : %d] value <%s> [%d]", row, col, value, is_num);
     
     if (is_num)
@@ -969,24 +969,24 @@ BOOL set_cell_value(lxw_workbook *oBook, lxw_worksheet *oSheet,
 }
 
 /**
-*	Функция по имени файла вычисляет название книги.
-*	c:\prt\example.xls -> example.xls
+*   Функция по имени файла вычисляет название книги.
+*   c:\prt\example.xls -> example.xls
 */
 char *getWorkBookName(char *xlsName)
 {
-	// вычленяем название книги
-	char *s1 = strcopy(xlsName);
-	int size = strlen(xlsName);
+    // вычленяем название книги
+    char *s1 = strcopy(xlsName);
+    int size = strlen(xlsName);
     s1 = strreverse(s1);
-	int num = strfind(s1, "/");
+    int num = strfind(s1, "/");
     s1 = strfree(s1);
 
-	if (num >= 0)			
-		s1 = strright_pos(xlsName, size - num);
-	else
-		s1 = strcopy(xlsName);
+    if (num >= 0)           
+        s1 = strright_pos(xlsName, size - num);
+    else
+        s1 = strcopy(xlsName);
 
-	return s1;
+    return s1;
 }
 
 /**
@@ -1122,8 +1122,8 @@ void setRangeColumnWidth(lxw_worksheet *oSheet, char *sAddressBegin, char *sAddr
 }
 
 /**
-*	Открывает нужную книгу и лист
-*	bAddList: Признак, создания нового листа, если в книге такого листа нет
+*   Открывает нужную книгу и лист
+*   bAddList: Признак, создания нового листа, если в книге такого листа нет
 */
 BOOL openBookAndList(lxw_workbook *oBook, char *FNameValue, char *ListValue,
                      BOOL bAddList)
@@ -1133,103 +1133,103 @@ BOOL openBookAndList(lxw_workbook *oBook, char *FNameValue, char *ListValue,
     
     lxw_worksheet *oSheet = NULL;
     
-	//	Если Excel файл существует, открываем его
-	if (file_exists(FNameValue))
-	{
-		BOOL bFindBook = FALSE;
-		
-		// Ищем нужную книгу
-		long n=1L;
+    //  Если Excel файл существует, открываем его
+    if (file_exists(FNameValue))
+    {
+        BOOL bFindBook = FALSE;
+        
+        // Ищем нужную книгу
+        long n=1L;
         long bound = 1; 
-		char *strN = NULL;
+        char *strN = NULL;
         char *s1 = NULL;
         char *s2 = NULL;
 
-		for(n; n<=bound; n++)
-		{
-			// вычленяем название книги
-			s1 = strcopy(FNameValue);
-			s1 = strreverse(s1);
-			int num = strfind(s1, "/");
-			int size = strlen(FNameValue);
+        for(n; n<=bound; n++)
+        {
+            // вычленяем название книги
+            s1 = strcopy(FNameValue);
+            s1 = strreverse(s1);
+            int num = strfind(s1, "/");
+            int size = strlen(FNameValue);
             s1 = strfree(s1);
 
-			if (num>=0)			
-				s1 = substr(FNameValue, size - num, strlen(FNameValue) - (size - num));
-			else
-				s1 = strcopy(FNameValue);
+            if (num>=0)         
+                s1 = substr(FNameValue, size - num, strlen(FNameValue) - (size - num));
+            else
+                s1 = strcopy(FNameValue);
 
-			s1 = strlwr_lat(s1);
-			strN = strlwr_lat(strN);
+            s1 = strlwr_lat(s1);
+            strN = strlwr_lat(strN);
 
-			if (strequal(strN, s1))
-			{
-				bFindBook = TRUE;
-				break;
-			}
+            if (strequal(strN, s1))
+            {
+                bFindBook = TRUE;
+                break;
+            }
 
-		}
+        }
 
-		// Если книга не открыта, то откроем ее
+        // Если книга не открыта, то откроем ее
         oSheet = get_worksheet_by_name(oBook, ListValue);
         
         if (!oSheet)
         {
-			//	добавляем новый с таким именем если указан соответствующий признак
-			//	bAddList
-			if (!strequal(ListValue, "") && bAddList)
+            //  добавляем новый с таким именем если указан соответствующий признак
+            //  bAddList
+            if (!strequal(ListValue, "") && bAddList)
                 oSheet = workbook_add_worksheet(oBook, ListValue);
         }
-	}	
-	else 
-	{
-		// Пытаемся создать файл с указаным именем
-		char *ExcelDir;
-		FNameValue = strreverse(FNameValue);
-		int index = strfind(FNameValue, "/");
-		FNameValue = strreverse(FNameValue);
-		ExcelDir = strleft(FNameValue, strlen(FNameValue) - index-1);
+    }   
+    else 
+    {
+        // Пытаемся создать файл с указаным именем
+        char *ExcelDir;
+        FNameValue = strreverse(FNameValue);
+        int index = strfind(FNameValue, "/");
+        FNameValue = strreverse(FNameValue);
+        ExcelDir = strleft(FNameValue, strlen(FNameValue) - index-1);
 
-		//	Проверяем существует ли дирректория
-		if (dir_exists(ExcelDir))
-		{
-			// проверяем существует ли такой лист
+        //  Проверяем существует ли дирректория
+        if (dir_exists(ExcelDir))
+        {
+            // проверяем существует ли такой лист
             oSheet = get_worksheet_by_name(oBook, ListValue);
             
             if (!oSheet)
             {
-                //	добавляем новый с таким именем
+                //  добавляем новый с таким именем
                 oSheet = workbook_add_worksheet(oBook, ListValue);
             }
-		}
-		else
-		{
-			errBox("ERROR: Неверно указана директория : <%s>", FNameValue);
-			return FALSE;
-		}
-	}
+        }
+        else
+        {
+            errBox("ERROR: Неверно указана директория : <%s>", FNameValue);
+            return FALSE;
+        }
+    }
 
-	return TRUE;
+    return TRUE;
 }
 
 /**
-*	Принудительн закрывает книгу
+*   Принудительн закрывает книгу
 */
 BOOL ForceCloseWorkbook(lxw_workbook *oBook, char *xlsName)
 {
-	if (oBook)
-	{
+    if (oBook)
+    {
         close_workbook_xlsx(oBook);
         oBook = NULL;
-		return TRUE;
-	}
+        return TRUE;
+    }
 
-	return FALSE;
+    return FALSE;
 }
 
 
 /**
-*	Сохраняет текущую книгу
+*   Сохраняет текущую книгу
 */
 void SaveActiveBook(lxw_workbook *oBook)
 {
@@ -1237,7 +1237,7 @@ void SaveActiveBook(lxw_workbook *oBook)
 }
 
 /**
-*	Сохраняет текущую книгу и по необходимости закрывает приложение 
+*   Сохраняет текущую книгу и по необходимости закрывает приложение 
 */
 void SaveAndQuit(lxw_workbook *oBook)
 {
@@ -1245,28 +1245,28 @@ void SaveAndQuit(lxw_workbook *oBook)
 }
 
 /**
-*	Удаляет неизмененные листы
+*   Удаляет неизмененные листы
 */
 BOOL DelUnchangedList(char *bookName, icStringCollection *m_ChangedListName,
- 					  lxw_workbook *oBook)
+                      lxw_workbook *oBook)
 {
-	icStringCollection selSheets = icStringCollection();
+    icStringCollection selSheets = icStringCollection();
     icStringCollection delSheets = icStringCollection();
-	
-	selSheets.RemoveAll();
-	delSheets.RemoveAll();
+    
+    selSheets.RemoveAll();
+    delSheets.RemoveAll();
 
-	//	Открываем книгу
-	char *ListName = "";
+    //  Открываем книгу
+    char *ListName = "";
 
-	if (!file_exists(bookName))
-		return FALSE;
+    if (!file_exists(bookName))
+        return FALSE;
 
-	//	Получаем колекцию листов
+    //  Получаем колекцию листов
 
-	//	Удаляем не выделенные листы
+    //  Удаляем не выделенные листы
 
-	return TRUE;
+    return TRUE;
 }
 
 /**
@@ -1356,7 +1356,7 @@ BOOL setRangeRowHidden(lxw_worksheet *oSheet, char *sAddressBegin, char *sAddres
 static BOOL _set_cell_font(lxw_workbook *oBook, lxw_worksheet *oSheet, 
                            unsigned int row, unsigned int col,
                            char *sFontName, unsigned int iFontSize, COLORREF TextColor,
-                           BOOL bBold, BOOL bItalic, BOOL bUnderline)
+                           BOOL bBold, BOOL bItalic, BOOL bUnderline, BOOL bCheckINN)
 {
     char *value = _get_cell_value(oSheet, row, col);
         
@@ -1386,14 +1386,14 @@ static BOOL _set_cell_font(lxw_workbook *oBook, lxw_worksheet *oSheet,
     set_cell_value(oBook, oSheet, row, col, value, format);
     //Если это число, породилась промежуточная строка
     //и необходимо очистить память после ее использования
-    if (isnumeric(value))
+    if (isnumeric(value, bCheckINN))
         value = strfree(value);    
 }
 
 BOOL setRangeFont(lxw_workbook *oBook, lxw_worksheet *oSheet, 
                   char *sAddressBegin, char *sAddressEnd,
                   char *sFontName, unsigned int iFontSize, COLORREF TextColor,
-                  BOOL bBold, BOOL bItalic, BOOL bUnderline)
+                  BOOL bBold, BOOL bItalic, BOOL bUnderline, BOOL bCheckINN)
 {
     if (strempty(sAddressBegin))
     {
@@ -1406,7 +1406,7 @@ BOOL setRangeFont(lxw_workbook *oBook, lxw_worksheet *oSheet,
         unsigned int i_col = lxw_name_to_col(sAddressBegin);
         _set_cell_font(oBook, oSheet, i_row, i_col, 
                        sFontName, iFontSize, TextColor,
-                       bBold, bItalic, bUnderline);
+                       bBold, bItalic, bUnderline, bCheckINN);
     }
     else
     {
@@ -1420,7 +1420,7 @@ BOOL setRangeFont(lxw_workbook *oBook, lxw_worksheet *oSheet,
             for (unsigned int i_col=col1; i_col <= col2; i_col++)
                 _set_cell_font(oBook, oSheet, i_row, i_col, 
                                sFontName, iFontSize, TextColor,
-                               bBold, bItalic, bUnderline);
+                               bBold, bItalic, bUnderline, bCheckINN);
     }
     
     return TRUE;
@@ -1433,7 +1433,7 @@ icFont *getRangeFont(lxw_worksheet *oSheet, char *sAddressBegin, char *sAddressE
 
 static BOOL _set_cell_border(lxw_workbook *oBook, lxw_worksheet *oSheet, 
                             unsigned int row, unsigned int col,
-                            DWORD topStyle, DWORD leftStyle, DWORD bottomStyle, DWORD rightStyle)
+                            DWORD topStyle, DWORD leftStyle, DWORD bottomStyle, DWORD rightStyle, BOOL bCheckINN)
 {
     char *value = _get_cell_value(oSheet, row, col);
       
@@ -1458,7 +1458,7 @@ static BOOL _set_cell_border(lxw_workbook *oBook, lxw_worksheet *oSheet,
 
     //Если это число, породилась промежуточная строка
     //и необходимо очистить память после ее использования
-    if (isnumeric(value))
+    if (isnumeric(value, bCheckINN))
         value = strfree(value);    
 }
 
@@ -1467,7 +1467,7 @@ static BOOL _set_cell_border(lxw_workbook *oBook, lxw_worksheet *oSheet,
 */
 BOOL setRangeBorder(lxw_workbook *oBook, lxw_worksheet *oSheet, 
                     char *sAddressBegin, char *sAddressEnd,
-                    DWORD topStyle, DWORD leftStyle, DWORD bottomStyle, DWORD rightStyle)
+                    DWORD topStyle, DWORD leftStyle, DWORD bottomStyle, DWORD rightStyle, BOOL bCheckINN)
 {
     //if (DBG_MODE) logAddLine("Set border [%s : %s]", sAddressBegin, sAddressEnd);
     if (strempty(sAddressBegin))
@@ -1479,7 +1479,7 @@ BOOL setRangeBorder(lxw_workbook *oBook, lxw_worksheet *oSheet,
         //Диапазон - это 1 ячейка
         unsigned int i_row = lxw_name_to_row(sAddressBegin);
         unsigned int i_col = lxw_name_to_col(sAddressBegin);
-        _set_cell_border(oBook, oSheet, i_row, i_col, topStyle, leftStyle, bottomStyle, rightStyle);
+        _set_cell_border(oBook, oSheet, i_row, i_col, topStyle, leftStyle, bottomStyle, rightStyle, bCheckINN);
     }
     else
     {
@@ -1490,7 +1490,7 @@ BOOL setRangeBorder(lxw_workbook *oBook, lxw_worksheet *oSheet,
 
         for (unsigned int i_row=row1; i_row <= row2; i_row++)
             for (unsigned int i_col=col1; i_col <= col2; i_col++)
-                _set_cell_border(oBook, oSheet, i_row, i_col, topStyle, leftStyle, bottomStyle, rightStyle);
+                _set_cell_border(oBook, oSheet, i_row, i_col, topStyle, leftStyle, bottomStyle, rightStyle, bCheckINN);
         
     }
     
@@ -1499,7 +1499,7 @@ BOOL setRangeBorder(lxw_workbook *oBook, lxw_worksheet *oSheet,
 
 BOOL setRangeBorderAround(lxw_workbook *oBook, lxw_worksheet *oSheet, 
                     char *sAddressBegin, char *sAddressEnd,
-                    DWORD topStyle, DWORD leftStyle, DWORD bottomStyle, DWORD rightStyle)
+                    DWORD topStyle, DWORD leftStyle, DWORD bottomStyle, DWORD rightStyle, BOOL bCheckINN)
 {
     if (strempty(sAddressBegin))
     {
@@ -1510,7 +1510,7 @@ BOOL setRangeBorderAround(lxw_workbook *oBook, lxw_worksheet *oSheet,
         //Диапазон - это 1 ячейка
         unsigned int i_row = lxw_name_to_row(sAddressBegin);
         unsigned int i_col = lxw_name_to_col(sAddressBegin);
-        _set_cell_border(oBook, oSheet, i_row, i_col, topStyle, leftStyle, bottomStyle, rightStyle);
+        _set_cell_border(oBook, oSheet, i_row, i_col, topStyle, leftStyle, bottomStyle, rightStyle, bCheckINN);
     }
     else
     {
@@ -1522,15 +1522,15 @@ BOOL setRangeBorderAround(lxw_workbook *oBook, lxw_worksheet *oSheet,
         //Вершняя + нижняя строка
         for (unsigned int i_col=col1; i_col <= col2; i_col++)
         {
-            _set_cell_border(oBook, oSheet, row1, i_col, topStyle, 0, 0, 0);
-            _set_cell_border(oBook, oSheet, row2, i_col, 0, 0, bottomStyle, 0);
+            _set_cell_border(oBook, oSheet, row1, i_col, topStyle, 0, 0, 0, bCheckINN);
+            _set_cell_border(oBook, oSheet, row2, i_col, 0, 0, bottomStyle, 0, bCheckINN);
         }
             
         //Права + левая колонка
         for (unsigned int i_row=row1; i_row <= row2; i_row++)
         {
-            _set_cell_border(oBook, oSheet, i_row, col1, 0, leftStyle, 0, 0);
-            _set_cell_border(oBook, oSheet, i_row, col2, 0, 0, 0, rightStyle);
+            _set_cell_border(oBook, oSheet, i_row, col1, 0, leftStyle, 0, 0, bCheckINN);
+            _set_cell_border(oBook, oSheet, i_row, col2, 0, 0, 0, rightStyle, bCheckINN);
         }        
     }
 }

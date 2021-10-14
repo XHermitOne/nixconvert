@@ -10,16 +10,16 @@
 */
 char *concatenate(char *str1, char *str2)
 {
-	int i,len,len2;
+    int i,len,len2;
 
-	len = strlen(str1);
-	len2 = strlen(str2);
-	for(i=0; i < len2; i++)
-	{
-		str1[len+i]=str2[i];
-	}
-	str1[len+i]='\x00';
-	return (str1);
+    len = strlen(str1);
+    len2 = strlen(str2);
+    for(i=0; i < len2; i++)
+    {
+        str1[len+i]=str2[i];
+    }
+    str1[len+i]='\x00';
+    return (str1);
 }
 
 /**
@@ -27,18 +27,18 @@ char *concatenate(char *str1, char *str2)
 */
 char *trim_space(char *str)
 {
-	int len;
-	char *ret;
+    int len;
+    char *ret;
 
-	len=strlen(str);
-	ret= (char*) calloc(len+1, sizeof(char));
+    len=strlen(str);
+    ret= (char*) calloc(len+1, sizeof(char));
     
-	ret[0]='\x00';
+    ret[0]='\x00';
     
-	concatenate(ret, str);
+    concatenate(ret, str);
     
-	str = strfree(str);
-	return ret;
+    str = strfree(str);
+    return ret;
 }
 
 /**
@@ -193,39 +193,39 @@ char *strreplace_old(char *src, char *from, char *to, BOOL bFree)
 
 char *strreplace(char *str, const char *from, const char *to, BOOL bFree)
 {
-	char *ret = NULL;
+    char *ret = NULL;
     char *r = NULL;
-	const char *p;
+    const char *p;
     const char *q;
-	size_t oldlen = strlen(from);
-	size_t count, retlen, newlen = strlen(to);
+    size_t oldlen = strlen(from);
+    size_t count, retlen, newlen = strlen(to);
 
-	if (oldlen != newlen) 
+    if (oldlen != newlen) 
     {
         for (count = 0, p = str; (q = strstr(p, from)) != NULL; p = q + oldlen)
-			count++;
-		/* this is undefined if p - str > PTRDIFF_MAX */
-		retlen = p - str + strlen(p) + count * (newlen - oldlen);
-	} 
+            count++;
+        /* this is undefined if p - str > PTRDIFF_MAX */
+        retlen = p - str + strlen(p) + count * (newlen - oldlen);
+    } 
     else
-		retlen = strlen(str);
+        retlen = strlen(str);
 
-	if ((ret = (char *) malloc(retlen + 1)) == NULL)
+    if ((ret = (char *) malloc(retlen + 1)) == NULL)
     {
         printf("Memory allocation error\n");
-		return NULL;
+        return NULL;
     }
 
-	for (r = ret, p = str; (q = strstr(p, from)) != NULL; p = q + oldlen) 
+    for (r = ret, p = str; (q = strstr(p, from)) != NULL; p = q + oldlen) 
     {
-		/* this is undefined if q - p > PTRDIFF_MAX */
-		ptrdiff_t l = q - p;
-		memcpy(r, p, l);
-		r += l;
-		memcpy(r, to, newlen);
-		r += newlen;
-	}
-	strcpy(r, p);
+        /* this is undefined if q - p > PTRDIFF_MAX */
+        ptrdiff_t l = q - p;
+        memcpy(r, p, l);
+        r += l;
+        memcpy(r, to, newlen);
+        r += newlen;
+    }
+    strcpy(r, p);
 
     if (bFree)
     {
@@ -233,87 +233,87 @@ char *strreplace(char *str, const char *from, const char *to, BOOL bFree)
         str = strfree(str);
     }
         
-	return ret;
+    return ret;
 }
 
 
 char *strreplace_all(char *src, sr *r)
 {
-	char *ret = src;
-	int i;
+    char *ret = src;
+    int i;
 
-	for(i=0; r[i].search; i++)
-		ret = strreplace(ret, r[i].search, r[i].replace);
+    for(i=0; r[i].search; i++)
+        ret = strreplace(ret, r[i].search, r[i].replace);
 
-	//ret = strreplace(ret, "\\", "/");
-	return ret;
+    //ret = strreplace(ret, "\\", "/");
+    return ret;
 }
 
 
-static	char	*buff;		/**< buffer for strings */
-static	char	**ptrs;		/**< buffer for pointers to strings */
+static  char    *buff;      /**< buffer for strings */
+static  char    **ptrs;     /**< buffer for pointers to strings */
 
-static	char	*bufp;		/**< current buffer pointer */
-static	char	**ptrp;		/**< next word address */
+static  char    *bufp;      /**< current buffer pointer */
+static  char    **ptrp;     /**< next word address */
 
-static	int	words;		    /**< number of words in string */
-static	int	space;		    /**< number of characters to store */
+static  int words;          /**< number of words in string */
+static  int space;          /**< number of characters to store */
 
 
 const char *skip(const char *str, const char *white)
 {
-	while (*str && strchr(white,*str) != CNULL)
-		str++;
-	return str;
+    while (*str && strchr(white,*str) != CNULL)
+        str++;
+    return str;
 }
 
 
 void copy(char ch)
 {
-	if (buff != CNULL)
-		*bufp ++= ch;
-	else
+    if (buff != CNULL)
+        *bufp ++= ch;
+    else
         space++;
 }
 
 
 void newword(char *cp)
 {
-	if (buff != CNULL)
-		*ptrp++ = cp;
-	else
+    if (buff != CNULL)
+        *ptrp++ = cp;
+    else
         words++;
 }
 
 
-void subsplit(const char	*str,const char *delim,const char *quotes)
+void subsplit(const char    *str,const char *delim,const char *quotes)
 {
-	int	sloshed;
-	char quotec;
-	
-	words = 0;
-	space = 0;
-	str = skip(str, delim);
-	if (*str)
-		newword(bufp);
+    int sloshed;
+    char quotec;
+    
+    words = 0;
+    space = 0;
+    str = skip(str, delim);
+    if (*str)
+        newword(bufp);
 
-	for (quotec='\0', sloshed=FALSE; *str; str++)
+    for (quotec='\0', sloshed=FALSE; *str; str++)
     { 
         if (quotec != '\0')
-			/* in quotes */
-			if (sloshed)
-			/* in quotes after a slosh */
-			{ 
+            /* in quotes */
+            if (sloshed)
+            /* in quotes after a slosh */
+            { 
                 if (*str != quotec && *str != SLOSH)
                     /* not something that's escaped */
-					copy(SLOSH);
+                    copy(SLOSH);
 
                 copy(*str);
 
                 /* forget slosh */
                 sloshed = FALSE;
             }
-			else
+            else
                 /* in quotes not after a slosh */
                 if (*str == quotec)
                     /* leave quotes */
@@ -365,51 +365,51 @@ void subsplit(const char	*str,const char *delim,const char *quotes)
                         else
                             copy(*str);
             }
-		}
+        }
 
-	/* catch trailing sloshes */
-	if (sloshed)
-		copy(SLOSH);
+    /* catch trailing sloshes */
+    if (sloshed)
+        copy(SLOSH);
 
-	copy('\0');
-	newword(CNULL);
+    copy('\0');
+    newword(CNULL);
 }
 
 
-char **qstrsplit(const char	*str,const char *delim,const char *quotes)
+char **qstrsplit(const char *str,const char *delim,const char *quotes)
 {
-	/* default delimiters */
-	if (delim == CNULL)
-		delim=" \t\n";
+    /* default delimiters */
+    if (delim == CNULL)
+        delim=" \t\n";
 
-	/* mark pass one */
-	buff=CNULL;
+    /* mark pass one */
+    buff=CNULL;
 
-	/* count words and characters */
-	subsplit(str,delim,quotes);
+    /* count words and characters */
+    subsplit(str,delim,quotes);
 
-	/* allocate room for characters */
-	if ((buff=vnew(char, space)) == CNULL)
-		return CPNULL;
+    /* allocate room for characters */
+    if ((buff=vnew(char, space)) == CNULL)
+        return CPNULL;
 
-	/* allocate room for words */
-	if ((ptrs=vnew(char *,words+1)) == CPNULL)
+    /* allocate room for words */
+    if ((ptrs=vnew(char *,words+1)) == CPNULL)
     { 
         buff = strfree(buff);
-		return CPNULL;
+        return CPNULL;
     }
 
-	/* initialise pointers */
-	bufp=buff;
-	ptrp=ptrs;
+    /* initialise pointers */
+    bufp=buff;
+    ptrp=ptrs;
 
-	/* point to allocated space */
-	*ptrp++ = buff;
+    /* point to allocated space */
+    *ptrp++ = buff;
 
-	/* copy words into buffer */
-	subsplit(str,delim,quotes);
+    /* copy words into buffer */
+    subsplit(str,delim,quotes);
 
-	return &ptrs[1];	/* return pointer to words */
+    return &ptrs[1];    /* return pointer to words */
 }
 
 
@@ -424,14 +424,14 @@ char **strsplit(char *str, char *delim)
 */
 char *strlwr_lat(char *pstr)
 {
-	char *p = pstr;
-	while (*p)
-	{
-		if(*p >= 'A' && *p <= 'Z')
+    char *p = pstr;
+    while (*p)
+    {
+        if(*p >= 'A' && *p <= 'Z')
             *p = tolower(*p);
-		p++;
-	}
-	return pstr;
+        p++;
+    }
+    return pstr;
 }
 
 
@@ -440,14 +440,14 @@ char *strlwr_lat(char *pstr)
 */
 char *strupr_lat(char *pstr)
 {
-	char *p = pstr;
-	while (*p)
-	{
-		if(*p >= 'A' && *p <= 'Z')
+    char *p = pstr;
+    while (*p)
+    {
+        if(*p >= 'A' && *p <= 'Z')
             *p = toupper(*p);
-		p++;
-	}
-	return pstr;
+        p++;
+    }
+    return pstr;
 }
 
 
@@ -494,13 +494,13 @@ BOOL strcontent(char *str)
         return FALSE;
 
     
-	char *p = str;
-	while (*p)
-	{
-		if ((*p != ' ') && (*p != '\t') && (*p != '\n') && (*p != '\r'))
+    char *p = str;
+    while (*p)
+    {
+        if ((*p != ' ') && (*p != '\t') && (*p != '\n') && (*p != '\r'))
             return TRUE;
-		p++;
-	}
+        p++;
+    }
     
     return FALSE;
 }
@@ -982,25 +982,25 @@ char *strreplace_pos(char *str, unsigned int pos, char *new_str, BOOL bFree)
 */
 char *strleft_to(char *str, char symb, BOOL bFree)
 {
-	char *p = str;
+    char *p = str;
     char *result = NULL;
     
-	while (*p)
-	{
-		if (*p == symb)
+    while (*p)
+    {
+        if (*p == symb)
         {
             result = strleft(str, p-str);
             if (bFree)
                 str = strfree(str);
             return result;
         }
-		p++;
-	}
+        p++;
+    }
     
     result = strcopy(str);
     if (bFree)
         str = strfree(str);
-	return result;
+    return result;
 }
 
 /**
@@ -1009,25 +1009,25 @@ char *strleft_to(char *str, char symb, BOOL bFree)
 char *strright_to(char *str, char symb, BOOL bFree)
 {
     char *start = str+strlen(str)-1;
-	char *p = start; //Перейти на последний элемент
+    char *p = start; //Перейти на последний элемент
     char *result = NULL;
     
-	while (*p)
-	{
-		if (*p == symb)
+    while (*p)
+    {
+        if (*p == symb)
         {
             result = strright(str, start - p);
             if (bFree)
                 str = strfree(str);
             return result;
         }
-		p--;
-	}
+        p--;
+    }
     
     result = strcopy(str);
     if (bFree)
         str = strfree(str);
-	return result;
+    return result;
 }
 
 /**
@@ -1048,7 +1048,7 @@ BOOL is_leading0(const char *str)
 /**
 *   Функция определяет является ли строка числом
 */
-BOOL isnumeric(const char *str)
+BOOL isnumeric(const char *str, BOOL bCheckINN)
 {
     if (str == NULL || *str == '\0' || isspace(*str))
     {
@@ -1069,7 +1069,7 @@ BOOL isnumeric(const char *str)
     
     // Число может быть ИНН 
     // Обработка такого случая
-    if (result)
+    if (result && bCheckINN)
     {
         // Если все символы строки цифровые и длина строки 10 или 12,
         // то считается что это ИНН
@@ -1087,7 +1087,7 @@ BOOL isnumeric(const char *str)
             i++;
         }
         result = (!((i == 10) || (i == 12)));
-        //if (DBG_MODE) logAddLine("INN <%s> [%d] [%d]", str, i, result);
+        if (DBG_MODE) logAddLine("INN <%s> [%d] [%d]", str, i, result);
     }
     
     return result;

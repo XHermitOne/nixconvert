@@ -21,7 +21,7 @@
 /**
 *   Открыть xls шаблон и подготовить его для заполнения
 */
-lxw_workbook *open_workbook_xls(char *xls_filename);
+lxw_workbook *open_workbook_xls(char *xls_filename, BOOL bCheckINN=TRUE);
 
 /**
 *   Закрыть xlsx файл
@@ -41,8 +41,8 @@ public:
     BOOL isItalic;
     BOOL isUnderline;
     
-	icFont() {};
-	virtual ~icFont() { FontName = strfree(FontName); };
+    icFont() {};
+    virtual ~icFont() { FontName = strfree(FontName); };
 
 };
 
@@ -53,8 +53,8 @@ public:
     BOOL isVerticalAlignment;
     BOOL isHorizontalAlignment;
     
-	icAlignment() {};
-	virtual ~icAlignment() {};
+    icAlignment() {};
+    virtual ~icAlignment() {};
 
 };
 
@@ -63,8 +63,8 @@ class icNumberFormat //: public CObject
 {
 public:
 
-	icNumberFormat() {};
-	virtual ~icNumberFormat() {};
+    icNumberFormat() {};
+    virtual ~icNumberFormat() {};
 
 };
 
@@ -74,8 +74,8 @@ public:
 
     COLORREF BackgroundColor;
 
-	icInterior() {};
-	virtual ~icInterior() {};
+    icInterior() {};
+    virtual ~icInterior() {};
 
 };
 
@@ -88,8 +88,8 @@ public:
     
     char *sValue;
     
-	icCellValue() { sValue = NULL; };
-	virtual ~icCellValue() { sValue = strfree(sValue); };
+    icCellValue() { sValue = NULL; };
+    virtual ~icCellValue() { sValue = strfree(sValue); };
 
 };
 
@@ -106,11 +106,11 @@ lxw_format *clone_cell_data_format(lxw_workbook *oBook, lxw_worksheet *oSheet, u
 
 BOOL set_cell_value(lxw_workbook *oBook, lxw_worksheet *oSheet, 
                     unsigned int row, unsigned int col, char *value,
-                    lxw_format *default_format=NULL);
+                    lxw_format *default_format=NULL, BOOL bCheckINN=TRUE);
 
 /**
-*	Функция по имени файла вычисляет название книги.
-*	c:\prt\example.xls -> example.xls
+*   Функция по имени файла вычисляет название книги.
+*   c:\prt\example.xls -> example.xls
 */
 char *getWorkBookName(char *xlsName);
 
@@ -134,13 +134,13 @@ icStringCollection *getRangeValueArray(lxw_worksheet *oSheet, char *sAddressBegi
 void setRangeColumnWidth(lxw_worksheet *oSheet, char *sAddressBegin, char *sAddressEnd, double iWidth);
 
 /**
-*	Открывает нужную книгу и лист
+*   Открывает нужную книгу и лист
 */
 BOOL openBookAndList(lxw_workbook *oBook, char *FNameValue, char *ListValue,
                      BOOL bAddList);
 
 /**
-*	Принудительн закрывает книгу
+*   Принудительн закрывает книгу
 */
 BOOL ForceCloseWorkbook(lxw_workbook *oBook, char *xlsName);
 char *getWorkBookName(char *xlsName);
@@ -148,7 +148,7 @@ void SaveAndQuit(lxw_workbook *oBook);
 void SaveActiveBook(lxw_workbook *oBook);
 
 BOOL DelUnchangedList(char *bookName, icStringCollection *m_ChangedListName,
-					 lxw_workbook *oBook);
+                     lxw_workbook *oBook);
 
 
 /**
@@ -187,7 +187,7 @@ BOOL setRangeRowHidden(lxw_worksheet *oSheet, char *sAddressBegin, char *sAddres
 BOOL setRangeFont(lxw_workbook *oBook, lxw_worksheet *oSheet, 
                   char *sAddressBegin, char *sAddressEnd,
                   char *sFontName, unsigned int iFontSize, COLORREF TextColor,
-                  BOOL bBold, BOOL bItalic, BOOL bUnderline);
+                  BOOL bBold, BOOL bItalic, BOOL bUnderline, BOOL bCheckINN=TRUE);
                     
 icFont *getRangeFont(lxw_worksheet *oSheet, char *sAddressBegin, char *sAddressEnd);
 
@@ -196,11 +196,11 @@ icFont *getRangeFont(lxw_worksheet *oSheet, char *sAddressBegin, char *sAddressE
 */
 BOOL setRangeBorder(lxw_workbook *oBook, lxw_worksheet *oSheet, 
                     char *sAddressBegin, char *sAddressEnd,
-                    DWORD topStyle, DWORD leftStyle, DWORD bottomStyle, DWORD rightStyle);
+                    DWORD topStyle, DWORD leftStyle, DWORD bottomStyle, DWORD rightStyle, BOOL bCheckINN=TRUE);
 
 BOOL setRangeBorderAround(lxw_workbook *oBook, lxw_worksheet *oSheet, 
                     char *sAddressBegin, char *sAddressEnd,
-                    DWORD topStyle, DWORD leftStyle, DWORD bottomStyle, DWORD rightStyle);
+                    DWORD topStyle, DWORD leftStyle, DWORD bottomStyle, DWORD rightStyle, BOOL bCheckINN=TRUE);
 
 /**
 *   Установить выравнивание области ячеек

@@ -9,15 +9,15 @@
 #define MAX_STR     1024
 #define STR_NULL    ((char) 0)
 
-#define		SLOSH		'\\'
-#define		SLASH		'/'
-#define		DEFQUOTES	"\"'"	/**< default quote characters */
+#define     SLOSH       '\\'
+#define     SLASH       '/'
+#define     DEFQUOTES   "\"'"   /**< default quote characters */
 #define     CNULL       0
 #define     CPNULL      0
-#define		vnew(object,n)  ((object *)malloc((size_t)((n)*sizeof(object))))
+#define     vnew(object,n)  ((object *)malloc((size_t)((n)*sizeof(object))))
 
 const char *skip(const char *str, const char *white);
-void copy(char	ch);
+void copy(char  ch);
 void newword(char *cp);
 void subsplit(const char *str, const char *delim, const char *quotes);
 
@@ -25,8 +25,8 @@ char **strsplit(char *str, char *delim);
                                   
 typedef struct
 {
-	char *search;
-	char *replace;
+    char *search;
+    char *replace;
 } sr;
 
 char *strreplace(char *src, const char *from, const char *to, BOOL bFree=FALSE);
@@ -189,7 +189,7 @@ char *strright_to(char *str, char symb, BOOL bFree=FALSE);
 /**
 *   Функция определяет является ли строка числом
 */
-BOOL isnumeric(const char *str);
+BOOL isnumeric(const char *str, BOOL bCheckINN=TRUE);
 
 /**
 *   Функция определяет является ли строка числом
