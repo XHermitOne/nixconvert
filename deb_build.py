@@ -114,6 +114,7 @@ def copy_programm_to_deb():
 
     if os.path.exists('default.cfg'):
         sys_cmd('cp ./default.cfg ./deb/usr/share/nixconvert')
+        sys_cmd('chmod 755 ./deb/usr/share/nixconvert/default.cfg')
     else:
         print_color_txt(u'Не найден файл <default.cfg> для сборки. Используется старый', YELLOW_COLOR_TEXT)
 
