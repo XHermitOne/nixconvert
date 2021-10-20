@@ -5,7 +5,12 @@
 #if !defined( __ECONVERT_H )
 #define __ECONVERT_H
 
-#include <stdio.h>
+#ifdef __cplusplus
+#include <cstdio>			// FILE *
+#else
+#include <stdio.h>			// FILE *
+#endif
+//#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <mcheck.h>
@@ -17,7 +22,7 @@
 #include <math.h>
 
 #include <xlsxwriter.h>
-#include <libxls/xls.h>
+#include <xls.h>
 //#include <libxls/endian.h>
 
 #include "version.h"

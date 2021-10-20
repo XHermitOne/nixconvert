@@ -11,8 +11,8 @@ __author__ = 'xhermit'
 __version__ = (0, 0, 3, 1)
 
 PACKAGENAME = 'nixconvert'
-PACKAGE_VERSION = '5.4'
-LINUX_VERSION = 'ubuntu16.04'
+PACKAGE_VERSION = '6.1'
+LINUX_VERSION = 'ubuntu20.04'
 COPYRIGHT = 'Ayan Company <xhermit@ayan.ru>'
 DESCRIPTION = 'The Linux EConvert fork'
 
@@ -30,9 +30,9 @@ DEFAULT_ENCODING = 'utf-8'
 
 DEBIAN_CONTROL_FILENAME = './deb/DEBIAN/control'
 
-LIB_XLS_READER_SRC = ('./libxls/src/.libs/libxlsreader.so.1.4.0',
-                      './libxls/src/.libs/libxlsreader.so',
-                      './libxls/src/.libs/libxlsreader.so.1')
+LIB_XLS_READER_SRC = ('./libxls/.libs/libxlsreader.so.8.0.2',
+                      './libxls/.libs/libxlsreader.so',
+                      './libxls/.libs/libxlsreader.so.8')
 
 LIB_XLSX_WRITER_SRC = ('./libxlsxwriter/lib/libxlsxwriter.so',
                        './libxlsxwriter/third_party/minizip/ioapi.so',
@@ -165,6 +165,8 @@ def check_libraries():
             sys_cmd('sudo cp %s /usr/lib' % lib_filename)
             print_color_txt(u'Установка библиотеки <%s> для сборки' % base_lib_filename, YELLOW_COLOR_TEXT)
             sys_cmd('sudo ldconfig')
+	elif not os.path.exists(usr_lib_filename):
+            print_color_txt(u'Библиотека <%s> не установлена в ОС' % base_lib_filename, YELLOW_COLOR_TEXT)
 
     sys_cmd('make --directory=./libxlsxwriter clean')
     sys_cmd('make --directory=./libxlsxwriter all')
@@ -176,6 +178,8 @@ def check_libraries():
             sys_cmd('sudo cp %s /usr/lib' % lib_filename)
             print_color_txt(u'Установка библиотеки <%s> для сборки' % base_lib_filename, YELLOW_COLOR_TEXT)
             sys_cmd('sudo ldconfig')
+	elif not os.path.exists(usr_lib_filename):
+            print_color_txt(u'Библиотека <%s> не установлена в ОС' % base_lib_filename, YELLOW_COLOR_TEXT)
 
             
 def build_deb():

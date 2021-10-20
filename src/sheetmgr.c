@@ -629,7 +629,7 @@ static BOOL _xls_is_default_numformat(xls::xlsWorkBook *oXLSBook, xls::xlsCell *
     WORD num_format = oXLSBook->xfs.xf[oXLSCell->xf].format;
     BYTE *format_value = NULL;
     if (num_format > 163)
-        format_value = oXLSBook->formats.format[num_format-164].value;
+        format_value = (BYTE *) oXLSBook->formats.format[num_format-164].value;
         // if (DBG_MODE) logAddLine("Is DEFAULT XLS NumFormat: <%d> <%s>", num_format, format_value);
         return (num_format == 164);
     return (num_format == 0);
@@ -663,7 +663,8 @@ lxw_workbook *open_workbook_xls(char *xls_filename, BOOL bCheckINN)
     }
     xls_parseWorkBook(xls_book);
     
-    xlsx_book = new_workbook(xlsx_filename);
+    // xlsx_book = new_workbook(xlsx_filename);
+    xlsx_book = workbook_new(xlsx_filename);
     // Перебор по листам
     for (unsigned int i_sheet=0; i_sheet < xls_book->sheets.count; i_sheet++)
     {
@@ -754,16 +755,25 @@ lxw_workbook *open_workbook_xls(char *xls_filename, BOOL bCheckINN)
                                           i_row + xls_cell->rowspan - 1,
                                           i_col + xls_cell->colspan - 1,
                                           (char *) xls_cell->str, format);
-                    if (isnumeric((char *) xls_cell->str), bCheckINN)
+                    if (isnumeric((char *) xls_cell->str, bCheckINN))
                         worksheet_write_number(xlsx_sheet, i_row, i_col, atof((char *) xls_cell->str), format);
                     
                 }
-                else if (isnumeric((char *) xls_cell->str), bCheckINN)
+                else if (isnumeric((char *) xls_cell->str, bCheckINN))
+		{
                     worksheet_write_number(xlsx_sheet, i_row, i_col, xls_cell->d, format);
+	   	    //if (DBG_MODE) logAddLine("Set number cell [%d : %d] number: [%d]", i_row, i_col, xls_cell->d);
+		}
                 else if (!strempty((char *) xls_cell->str))
+		{
                     worksheet_write_string(xlsx_sheet, i_row, i_col, (char *) xls_cell->str, format);
+		    //if (DBG_MODE) logAddLine("Set cell [%d : %d] string: [%s]", i_row, i_col, (char *) xls_cell->str);
+		}
                 else
+		{
                     worksheet_write_string(xlsx_sheet, i_row, i_col, NULL, format);
+		    //if (DBG_MODE) logAddLine("Empty cell [%d : %d]", i_row, i_col);
+		}
             }
         }
         // Установить разрывы страниц
@@ -817,7 +827,8 @@ static lxw_cell *_get_cell(lxw_worksheet *oSheet, unsigned int row, unsigned int
     lxw_cell *current_cell = NULL;
     
     lxw_row *current_row = lxw_worksheet_find_row(oSheet, (lxw_row_t) row);
-    current_cell = lxw_worksheet_find_cell(current_row, (lxw_col_t) col);
+    // current_cell = lxw_worksheet_find_cell(current_row, (lxw_col_t) col);
+    current_cell = lxw_worksheet_find_cell_in_row(current_row, (lxw_col_t) col);
     
     return current_cell;
 }

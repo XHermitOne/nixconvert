@@ -11,8 +11,8 @@
 
 #include "version.h"
 
-const int XV = 5;  /**< XX */
-const int YV = 4;  /**< YY */
+const int XV = 6;  /**< XX */
+const int YV = 1;  /**< YY */
 
 static char version[100];
 char *getVersion(void)

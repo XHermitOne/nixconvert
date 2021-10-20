@@ -2320,7 +2320,8 @@ BOOL convertTXT(icStructCFG *pcfg)
         ExcelDir = strleft(ExcelName, strlen(ExcelName) - index - 1);
         if (DBG_MODE) logAddLine("New workbook <%s>", ExcelName);
         if (dir_exists(ExcelDir))
-            oBook = new_workbook(ExcelName);
+            // oBook = new_workbook(ExcelName);
+            oBook = workbook_new(ExcelName);
         else
         {
             errBox("Неверно указана директория : <%s>", ExcelName);

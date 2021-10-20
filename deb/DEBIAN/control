@@ -1,5 +1,5 @@
 Package: nixconvert
-Version: 5.4
+Version: 6.1
 Architecture: amd64
 Maintainer: Ayan Company <xhermit@ayan.ru>
 Depends: 

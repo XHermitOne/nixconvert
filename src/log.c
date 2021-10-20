@@ -4,7 +4,12 @@
 */
 
 
-#include <stdio.h>
+#ifdef __cplusplus
+#include <cstdio>			// FILE *
+#else
+#include <stdio.h>			// FILE *
+#endif
+//#include <stdio.h>
 #include <time.h>
 #include <stdarg.h>
 #include <stdlib.h>

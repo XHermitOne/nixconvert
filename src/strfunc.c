@@ -1087,7 +1087,7 @@ BOOL isnumeric(const char *str, BOOL bCheckINN)
             i++;
         }
         result = (!((i == 10) || (i == 12)));
-        if (DBG_MODE) logAddLine("INN <%s> [%d] [%d]", str, i, result);
+        // if (DBG_MODE) logAddLine("INN <%s> [%d] [%d]", str, i, result);
     }
     
     return result;

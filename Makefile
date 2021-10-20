@@ -34,8 +34,8 @@ X11_LIB =
 #CAIRO_LIBS = $(shell pkg-config --cflags --libs cairo)
 #GLIB_LIBS = $(shell pkg-config --libs glib-2.0)
 QODS_LIBS = -lods -lquazip -lzlib
-CXX_FLAGS = -fPIC -std=c++11 
-QT_LIBS = -lQt5Core -lQt5Gui
+CXX_FLAGS = -fPIC -std=c++11
+#QT_LIBS = -lQt5Core -lQt5Gui
 
 LIBXLSXWRITER = ./libxlsxwriter/src/libxlsxwriter.a
 LXW_LIBS = $(LIBXLSXWRITER) -lz

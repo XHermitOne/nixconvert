@@ -6,22 +6,23 @@
 
 1 Библиотека чтения XLS файлов libxls
 
-Последняя версия 1.4.0
-
 Оффициальный сайт:
 http://libxls.sourceforge.net/
+Репозитарий:
+https://github.com/libxls/libxls
 
 2. Библиотека записи XLSX файлов libxlsxwriter
 
-Последняя версия 0.6.3
-
 Оффициальный сайт:
 http://libxlsxwriter.github.io
+Репозитарий:
+https://github.com/jmcnamara/libxlsxwriter
 
 
 Необходимые инструменты
 ------------------------
 
+Для Ubuntu 16.04:
 **********************************************************
 sudo apt-get install gcc-dev
 sudo apt-get install g++-dev
@@ -30,11 +31,22 @@ sudo apt-get install automake
 autoreconf -i
 **********************************************************
 
+Для Ubuntu 20.04:
+**********************************************************
+# sudo apt-get install gcc-dev
+# sudo apt-get install g++-dev
+sudo apt-get install m4
+sudo apt-get install automake
+sudo apt-get install gettext
+autoreconf -i
+**********************************************************
+
 Получение исходных кодов
 --------------------------
 
 1. libxls
 
+Старая версия:
 Просто скачиваем с http://sourceforge.net/projects/libxls
 
 [IMPORTANT]
@@ -49,6 +61,17 @@ ftp://ftp.pbone.net/mirror/ftp5.gwdg.de/pub/opensuse/repositories/home%3A/Lazy_K
 Либо:
 http://download.opensuse.org/repositories/home:/Lazy_Kent/openSUSE_Leap_42.3/src/libxls-1.4.0-1.3.lk.src.rpm
 ==========================================================
+
+Новая версия:
+**********************************************************
+git clone https://github.com/libxls/libxls
+**********************************************************
+
+Исходники адаптированные для копиляции под Linux (корректная версия):
+**********************************************************
+wget https://github.com/libxls/libxls/releases/download/v1.6.2/libxls-1.6.2.tar.gz
+tar xvf libxls-1.6.2.tar.gz
+**********************************************************
 
 2. libxlsxwriter
 

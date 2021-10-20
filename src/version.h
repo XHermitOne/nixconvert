@@ -6,7 +6,12 @@
 #if !defined( __VERSION_H )
 #define __VERSION_H
 
-#include <stdio.h>
+#ifdef __cplusplus
+#include <cstdio>			// FILE *
+#else
+#include <stdio.h>			// FILE *
+#endif
+// #include <stdio.h>
 #include <string.h>
 #include <sys/sysinfo.h>
 

@@ -6,7 +6,12 @@
 #if !defined( __TOOLS_H )
 #define __TOOLS_H
 
-#include <stdio.h>
+#ifdef __cplusplus
+#include <cstdio>			// FILE *
+#else
+#include <stdio.h>			// FILE *
+#endif
+//#include <stdio.h>			
 #include <sys/stat.h>
 #include <stdarg.h>
 #include <string.h>
