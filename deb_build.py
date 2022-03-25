@@ -10,7 +10,7 @@ import os.path
 __author__ = 'xhermit'
 __version__ = (0, 0, 3, 1)
 
-PACKAGENAME = 'nixconvert'
+PACKAGENAME = 'nixconvert-exp'
 PACKAGE_VERSION = '6.1'
 LINUX_VERSION = 'ubuntu20.04'
 COPYRIGHT = 'Ayan Company <xhermit@ayan.ru>'

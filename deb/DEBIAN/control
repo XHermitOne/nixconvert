@@ -1,4 +1,4 @@
-Package: nixconvert
+Package: nixconvert-exp
 Version: 6.1
 Architecture: amd64
 Maintainer: Ayan Company <xhermit@ayan.ru>
