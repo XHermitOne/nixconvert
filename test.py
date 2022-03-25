@@ -84,7 +84,10 @@ commands = ( # './nixconvert --debug',
              #'rm /home/xhermit/.dosemu/drive_c/bal98/wrk/akc2001.xls; cp ./tst/akc/akc2001.xls /home/xhermit/.dosemu/drive_c/bal98/wrk/akc2001.xls; ./nixconvert --debug --log --dbf=./tst/akc/export.dbf; libreoffice /home/xhermit/.dosemu/drive_c/bal98/wrk/akc2001.xlsx',
              #'./nixconvert --debug --log --rep=./tst/d090908.txt --out=./tst/d090908.xlsx; libreoffice ./tst/d090908.xlsx',
              # './nixconvert --debug --log --cfg=./tst/noinn.cfg --rep=./tst/r090841.txt --out=./tst/r090841.xlsx; libreoffice ./tst/r090841.xlsx',
-             'rm /home/xhermit/.dosemu/drive_c/bal98/wrk/oc1.xls; cp ./tst/oc1_bug/oc1_original.xls /home/xhermit/.dosemu/drive_c/bal98/wrk/oc1.xls; ./nixconvert --debug --dbf=./tst/oc1_bug/export.dbf; libreoffice /home/xhermit/.dosemu/drive_c/bal98/wrk/oc1.xlsx',
+             #'rm /home/xhermit/.dosemu/drive_c/bal98/wrk/oc1.xls; cp ./tst/oc1_bug/oc1_original.xls /home/xhermit/.dosemu/drive_c/bal98/wrk/oc1.xls; ./nixconvert --debug --dbf=./tst/oc1_bug/export.dbf; libreoffice /home/xhermit/.dosemu/drive_c/bal98/wrk/oc1.xlsx',
+             #'./nixconvert --debug --log --cfg=./tst/ossaldo_bug/u_oper00.cfg --rep=./tst/ossaldo_bug/ossaldo.rep --template=./tst/ossaldo_bug/f720301_.xls; libreoffice ./tst/ossaldo_bug/f720301_.xlsx',
+			 # 'rm /home/xhermit/.dosemu/drive_c/pv/rlz/wrk/trnakl.xls; cp ./tst/trnakl/trnakl.xls /home/xhermit/.dosemu/drive_c/pv/rlz/wrk/trnakl.xls; ./nixconvert --debug --dbf=./tst/trnakl/export.dbf; libreoffice /home/xhermit/.dosemu/drive_c/pv/rlz/wrk/trnakl.xlsx',
+             'rm /home/xhermit/.dosemu/drive_c/bal/wrk/19.xlsx; cp ./tst/scheme_gruz/19.xls /home/xhermit/.dosemu/drive_c/bal/wrk/19.xls; ./nixconvert --debug --log --dbf=./tst/scheme_gruz/export.dbf; libreoffice /home/xhermit/.dosemu/drive_c/bal/wrk/19.xlsx',
            )
 
 

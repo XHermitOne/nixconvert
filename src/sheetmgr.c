@@ -41,7 +41,7 @@ static double _convert_width_cm(double width)
         else
         {
             // Конвертация сверх-маленьких ширин
-            result_width = cm * 3.2; //2.95;
+            result_width = cm * 2.0; //2.95;
         }
     
         if (DBG_MODE) logAddLine("Convert Column WIDTH <%f> in CM <%f> result <%f>", width, cm, result_width);
